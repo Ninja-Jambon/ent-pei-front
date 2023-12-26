@@ -10,11 +10,11 @@ export default function Login() {
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
-      const homeworks = await axios.get("http://localhost:5000/api/homeworks", {
+      const homeworks = await axios.get("/api/homeworks", {
         withCredentials: true,
       });
 
-      const user = await axios.get("http://localhost:5000/api/discord/user", {
+      const user = await axios.get("/api/discord/user", {
         withCredentials: true,
       });
 

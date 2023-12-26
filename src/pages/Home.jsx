@@ -9,7 +9,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
-      const user = await axios.get("http://localhost:5000/api/discord/user", {
+      const user = await axios.get("/api/discord/user", {
         withCredentials: true,
       });
 
