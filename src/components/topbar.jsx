@@ -1,18 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Topbar(user) {
-  if (user.user) {
+export default function Topbar({user, selected}) {
+  console.log(user);
+  if (user) {
     return (
       <div className="navbar navbar-dark bg-dark justify-content-between">
         <div className="nav">
-          <Link to="/" className="nav-item btn btn-primary m-2">
+          <Link to="/" className={`nav-item btn ${selected === 1 ? "btn-primary" : "btn-secondary"} m-2`}>
             Home
           </Link>
-          <Link to="/planning" className="nav-item btn btn-secondary m-2">
+          <Link to="/planning" className={`nav-item btn ${selected === 2 ? "btn-primary" : "btn-secondary"} m-2`}>
             Planning
           </Link>
-          <Link to="/homeworks" className="nav-item btn btn-secondary m-2">
+          <Link to="/homeworks" className={`nav-item btn ${selected === 3 ? "btn-primary" : "btn-secondary"} m-2`}>
             Homeworks
           </Link>
         </div>
@@ -24,7 +25,7 @@ export default function Topbar(user) {
             Logout
           </a>
           <img
-            src={`https://cdn.discordapp.com/avatars/${user.user.id}/${user.user.avatar}`}
+            src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`}
             alt="avatar"
             className="rounded-circle m-2"
             height="60"
@@ -36,13 +37,13 @@ export default function Topbar(user) {
     return (
       <div className="navbar navbar-dark bg-dark justify-content-between">
         <div className="nav">
-          <Link to="/" className="nav-item btn btn-primary m-2">
+          <Link to="/" className={`nav-item btn ${selected === 1 ? "btn-primary" : "btn-secondary"} m-2`}>
             Home
           </Link>
-          <Link to="/planning" className="nav-item btn btn-secondary m-2">
+          <Link to="/planning" className={`nav-item btn ${selected === 2 ? "btn-primary" : "btn-secondary"} m-2`}>
             Planning
           </Link>
-          <Link to="/homeworks" className="nav-item btn btn-secondary m-2">
+          <Link to="/homeworks" className={`nav-item btn ${selected === 3 ? "btn-primary" : "btn-secondary"} m-2`}>
             Homeworks
           </Link>
         </div>

@@ -8,6 +8,10 @@ export default function HomeworkForm() {
     const date = document.getElementById("date").value;
     const description = document.getElementById("description").value;
 
+    if (!title || !subject || !date || !description) {
+      return;
+    }
+
     const res = await axios.get(`/api/homeworks/add?title=${title}&subject=${subject}&date=${date}&description=${description}`, {
       withCredentials: true,
     });

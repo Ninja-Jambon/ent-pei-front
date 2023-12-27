@@ -1,62 +1,23 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import Topbar from "../components/topbar";
 import HomeworkForm from "../components/homeworkForm";
+import HomeworksList from "../components/homeworksList";
 
-export default function Homeworks(user) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+export default function Homeworks({user}) {
 
-  useEffect(() => {
-    async function fetchData() {
-      setLoading(true);
-      const homeworks = await axios.get("/api/homeworks", {
-        withCredentials: true,
-      });
-
-      setData(homeworks.data);
-      setLoading(false);
-    }
-    fetchData();
-  }, []);
-
-  if (loading) {
-    if (user.user.error) {
-      return (
-        <div>
-          <Topbar />
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <Topbar user={user.user} />
-          <div>Loading...</div>
-        </div>
-      );
-    }
-  } else if (data.error || user.user.error) {
+  if (user.error) {
     return (
       <div>
-        <Topbar />
+        <Topbar selected={3} />
       </div>
     );
   } else {
     return (
       <div>
-        <Topbar user={user.user} />
+        <Topbar user={user} selected={3} />
         <div className="row container-fluid p-0 m-0 h-100">
           <div className="col text-center">
-            <ul>
-              {data.map((homework) => (
-                <li>
-                  <h1>{homework.title}</h1>
-                  <h2>{homework.subject}</h2>
-                  <h3>{homework.date}</h3>
-                  <p>{homework.description}</p>
-                </li>
-              ))}
-            </ul>
+            <HomeworksList />
           </div>
           <div className="col text-center mt-5">
             <HomeworkForm />

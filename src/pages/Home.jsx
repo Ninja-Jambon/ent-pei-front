@@ -1,18 +1,18 @@
 import React from "react";
 import Topbar from "../components/topbar";
 
-export default function Home(user) {
-  if (user.user.error) { 
+export default function Home({user}) {
+  if (user.error) { 
     return (
       <div>
-        <Topbar />
+        <Topbar selected={1} />
       </div>
     );
   } else {
     return (
       <div>
-        <Topbar user={user.user} />
-        <h2>Welcome {user.user.username}</h2>
+        <Topbar user={user} selected={1} />
+        <h2>Welcome {user.username}</h2>
       </div>
     );
   }
