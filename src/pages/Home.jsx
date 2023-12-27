@@ -1,32 +1,8 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import Topbar from "../components/topbar";
 
-export default function Home() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchData() {
-      setLoading(true);
-      const user = await axios.get("/api/discord/user", {
-        withCredentials: true,
-      });
-
-      setData({ user: user.data });
-      setLoading(false);
-    }
-    fetchData();
-  }, []);
-
-  if (loading) {
-    return (
-      <div>
-        <Topbar />
-        <div>Loading...</div>
-      </div>
-    );
-  } else if (data.user.error) { 
+export default function Home(user) {
+  if (user.user.error) { 
     return (
       <div>
         <Topbar />
@@ -35,8 +11,8 @@ export default function Home() {
   } else {
     return (
       <div>
-        <Topbar user={data.user} />
-        <h2>Welcome {data.user.username}</h2>
+        <Topbar user={user.user} />
+        <h2>Welcome {user.user.username}</h2>
       </div>
     );
   }
