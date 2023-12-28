@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/Home";
 import Homeworks from "./pages/Homeworks";
 import Planning from "./pages/Planning";
+import "./App.css";
 
 export default function App() {
   const [data, setData] = useState(null);
