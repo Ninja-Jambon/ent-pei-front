@@ -12,9 +12,12 @@ export default function HomeworkForm() {
       return;
     }
 
-    const res = await axios.get(`/api/homeworks/add?title=${title}&subject=${subject}&date=${date}&description=${description}`, {
-      withCredentials: true,
-    });
+    const res = await axios.get(
+      `/api/homeworks/add?title=${title}&subject=${subject}&date=${date}&description=${description}`,
+      {
+        withCredentials: true,
+      }
+    );
 
     if (res.data.error) {
       alert(res.data.error);
@@ -24,31 +27,16 @@ export default function HomeworkForm() {
   }
 
   return (
-    <form className="m-5">
-      <div className="row text-center">
-        <div className="col-6 m-3 text-center">
-          <input type="text" className="form-control" placeholder="title" id="title" />
-        </div>
-        <div className="col m-3 text-center">
-          <input type="text" className="form-control" placeholder="subject" id="subject" />
-        </div>
-        <div className="col m-3 text-center">
-          <input type="text" className="form-control" placeholder="date" id="date" />
-        </div>
+    <form className="homeworks-form">
+      <div className="homeworks-form-top">
+        <input type="text" placeholder="title" id="title" className="homeworks-form-input input-black"/>
+        <input type="text" placeholder="subject" id="subject" className="homeworks-form-input input-grey"/>
+        <input type="text" placeholder="date" id="date" className="homeworks-form-input input-lightgrey"/>
       </div>
-      <div className="row text-center">
-        <div className="col m-3 text-center">
-          <textarea
-            className="form-control"
-            id="description"
-            rows="8"
-            placeholder="description"
-          ></textarea>
-        </div>
-      </div>
-      <div className="m-3">
-      <button type="button" className="btn btn-success btn-lg btn-block container-fluid" onClick={submit}>Submit</button>
-      </div>
+      <textarea id="description" placeholder="description" className="homeworks-form-area"></textarea>
+      <button type="button" onClick={submit} className="button button-red form-button">
+        Submit
+      </button>
     </form>
   );
 }
