@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import axios from "axios";
+
 import Home from "./pages/Home";
 import Homeworks from "./pages/Homeworks";
 import Planning from "./pages/Planning";
+
 import "./App.css";
 
 export default function App() {

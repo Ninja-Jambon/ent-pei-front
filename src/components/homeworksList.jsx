@@ -3,11 +3,15 @@ import axios from "axios";
 
 export default function HomeworksList() {
   async function deleteHomework(id) {
-    axios.get(`/api/homeworks/delete?id=${id}`, {
+    const res = await axios.get(`/api/homeworks/delete?id=${id}`, {
       withCredentials: true,
     });
 
-    window.location.reload();
+    if (res.data.error) {
+      alert(res.data.error);
+    } else {
+      window.location.reload();
+    }
   }
 
   const [data, setData] = useState(null);
@@ -27,7 +31,7 @@ export default function HomeworksList() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="homeworks">Loading...</div>;
   } else {
     return (
       <div className="homeworks">
@@ -37,7 +41,12 @@ export default function HomeworksList() {
               <p className="homework-title">{homework.title}</p>
               <p className="homework-subject">{homework.subject}</p>
               <p className="homework-date">{homework.date}</p>
-              <button className="button button-red" onClick={() => deleteHomework(homework.id)}>Supr</button>
+              <button
+                className="button button-red"
+                onClick={() => deleteHomework(homework.id)}
+              >
+                Supr
+              </button>
             </div>
             <p className="homework-description">{homework.description}</p>
           </div>
