@@ -7,6 +7,7 @@ export default function HomeworkForm() {
     const subject = document.getElementById("subject").value;
     const date = document.getElementById("date").value;
     const description = document.getElementById("description").value;
+    const important = document.getElementById("important").checked;
 
     if (!title || !subject || !date || !description) {
       return;
@@ -29,9 +30,8 @@ export default function HomeworkForm() {
       return;
     }
 
-
     const res = await axios.get(
-      `/api/homeworks/add?title=${title}&subject=${subject}&date=${date}&description=${description}&timestamp=${dateObj.getTime()}`,
+      `/api/homeworks/add?title=${title}&subject=${subject}&date=${date}&description=${description}&important=${important}&timestamp=${dateObj.getTime()}`,
       {
         withCredentials: true,
       }
@@ -47,14 +47,40 @@ export default function HomeworkForm() {
   return (
     <form className="homeworks-form">
       <div className="homeworks-form-top">
-        <input type="text" placeholder="title" id="title" className="homeworks-form-input input-black"/>
-        <input type="text" placeholder="subject" id="subject" className="homeworks-form-input input-grey"/>
-        <input type="text" placeholder="date" id="date" className="homeworks-form-input input-lightgrey"/>
+        <input
+          type="text"
+          placeholder="title"
+          id="title"
+          className="homeworks-form-input input-black"
+        />
+        <input
+          type="text"
+          placeholder="subject"
+          id="subject"
+          className="homeworks-form-input input-grey"
+        />
+        <input
+          type="text"
+          placeholder="date"
+          id="date"
+          className="homeworks-form-input input-lightgrey"
+        />
       </div>
-      <textarea id="description" placeholder="description" className="homeworks-form-area"></textarea>
-      <button type="button" onClick={submit} className="button button-red form-button">
-        Submit
-      </button>
+      <textarea
+        id="description"
+        placeholder="description"
+        className="homeworks-form-area"
+      ></textarea>
+      <div className="homeworks-form-top">
+        <button
+          type="button"
+          onClick={submit}
+          className="button button-red form-button"
+        >
+          Submit
+        </button>
+        <span className="homeworks-form-bot">Important <input type="checkbox" className="checkbox" id="important"/></span>
+      </div>
     </form>
   );
 }

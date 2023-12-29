@@ -29,6 +29,7 @@ export default function App() {
     return <div>Loading...</div>;
   } else {
     return (
+      console.log(data),
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home user={data} />} />

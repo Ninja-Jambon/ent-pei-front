@@ -1,35 +1,36 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background-color: #f7ebe8;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #f7ebe8;
 }
 
-.topbar {
+@media only screen and (min-width: 768px) {
+  .topbar {
     background-color: #1e1e24;
     height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px 0 20px;
-}
+  }
 
-.topbar-right {
+  .topbar-right {
     display: flex;
     flex-direction: row;
     align-items: center;
-}
+  }
 
-.topbar-username {
+  .topbar-username {
     color: white;
     height: 40px;
     font-size: 20px;
     margin: 15px;
     position: relative;
-    top : 10px;
-}
+    top: 10px;
+  }
 
-.button {
+  .button {
     border: none;
     padding: 10px 20px;
     margin: 15px;
@@ -38,50 +39,65 @@ body {
     display: inline-block;
     font-size: 16px;
     border-radius: 10px;
-}
+  }
 
-.button-red {
+  .button-red {
     background-color: #e54b4b;
     color: white;
-}
+  }
 
-.button-salmon {
+  .button-salmon {
     background-color: #ffa987;
     color: white;
-}
+  }
 
-.button-login {
-    background-color: #7289DA;
+  .button-login {
+    background-color: #7289da;
     color: white;
     font-size: 20px;
+  }
 
-}
-
-.avatar {
+  .avatar {
     display: inline-block;
     border-radius: 50%;
     width: 40px;
     height: 40px;
     margin: 15px;
-}
+  }
 
-.homework-page {
+  .homework-page {
     display: flex;
     justify-content: space-between;
     height: 100%;
-}
+  }
 
-.homeworks {
+  .homeworks {
     background-color: #444140;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 50%;
-}
+    height: calc(100vh - 60px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
 
-.homework {
+  .homeworks::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .homeworks::-webkit-scrollbar-track {
+    background: #444140;
+  }
+
+  .homeworks::-webkit-scrollbar-thumb {
+    background: #1e1e24;
+    border-radius: 10px;
+  }
+
+  .homework {
     background-color: #f7ebe8;
-    border: 4px solid #1e1e24;;
+    border: 4px solid #1e1e24;
     width: 500px;
     border-radius: 30px;
     padding: 20px;
@@ -90,17 +106,22 @@ body {
     flex-direction: column;
     align-items: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-}
+  }
 
-.homework-top {
+  .homework-important {
+    border: 4px solid #e54b4b;
+    box-shadow: 0 0 10px rgba(229, 75, 75, 0.8);
+  }
+
+  .homework-top {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     width: 100%;
-}
+  }
 
-.homework-title {
+  .homework-title {
     border: none;
     padding: 10px 20px;
     margin: 15px;
@@ -111,9 +132,9 @@ body {
     border-radius: 30px;
     background-color: #1e1e24;
     color: white;
-}
+  }
 
-.homework-subject {
+  .homework-subject {
     border: none;
     padding: 10px 20px;
     margin: 15px;
@@ -124,9 +145,9 @@ body {
     border-radius: 30px;
     background-color: #444140;
     color: white;
-}
+  }
 
-.homework-date {
+  .homework-date {
     border: none;
     padding: 10px 20px;
     margin: 15px;
@@ -135,38 +156,38 @@ body {
     display: inline-block;
     font-size: 16px;
     border-radius: 30px;
-    background-color: #716D6B;
+    background-color: #716d6b;
     color: white;
-}
+  }
 
-.homeworks-form {
+  .homeworks-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 40%;
     height: calc(100vh - 60px - 10vw);
     margin: 5%;
-}
+  }
 
-.homeworks-form-top {
+  .homeworks-form-top {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     width: 90%;
     margin: 15px;
-}
+  }
 
-.homeworks-form-input {
+  .homeworks-form-input {
     border: none;
     padding: 10px 20px;
     text-decoration: none;
     font-size: 16px;
     border-radius: 30px;
-    width: 27%;
-}
+    width: 23%;
+  }
 
-.homeworks-form-area {
+  .homeworks-form-area {
     border: none;
     padding: 10px 20px;
     text-decoration: none;
@@ -175,38 +196,50 @@ body {
     width: calc(90% - 40px);
     height: 200px;
     resize: none;
+  }
 
-}
+  .homeworks-form-input::placeholder {
+    color: #d0c6c1;
+  }
 
-.homeworks-form-input::placeholder {
-    color: #D0C6C1;
-}
-
-.input-black {
+  .input-black {
     background-color: #1e1e24;
     color: white;
-}
+  }
 
-.input-grey {
+  .input-grey {
     background-color: #444140;
     color: white;
-}
+  }
 
-.input-lightgrey {
-    background-color: #716D6B;
+  .input-lightgrey {
+    background-color: #716d6b;
     color: white;
-}
+  }
 
-.form-button {
-    width: 90%;
-    margin: 15px;
-}
+  .form-button {
+    width: 80%;
+    border-radius: 30px;
+    margin: 0;
+  }
 
-.login {
+  .homeworks-form-bot {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1e1e24;
+    border-radius: 30px;
+    height: 40px;
+    padding: 0px 20px;
+    color: white;
+  }
+
+  .login {
     position: absolute;
     top: 35%;
     left: 30%;
-    background-color: #716D6B;
+    background-color: #716d6b;
     border-radius: 40px;
     width: 40%;
     height: 30%;
@@ -214,4 +247,211 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .topbar {
+    background-color: #1e1e24;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .topbar-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .topbar-username {
+    display: none;
+  }
+
+  .button {
+    border: none;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+
+  .button-red {
+    background-color: #e54b4b;
+    color: white;
+  }
+
+  .button-salmon {
+    background-color: #ffa987;
+    color: white;
+  }
+
+  .button-login {
+    background-color: #7289da;
+    color: white;
+    font-size: 20px;
+  }
+
+  .avatar {
+    display: inline-block;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+
+  .homeworks-form {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 340px;
+    background-color: #f7ebe8;
+  }
+
+  .homeworks-form-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: 15px;
+  }
+
+  .homeworks-form-input {
+    border: none;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 30px;
+    width: 27%;
+  }
+
+  .homeworks-form-area {
+    border: none;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 30px;
+    width: calc(90% - 10px);
+    height: 200px;
+    resize: none;
+  }
+
+  .homeworks-form-input::placeholder {
+    color: #d0c6c1;
+  }
+
+  .input-black {
+    background-color: #1e1e24;
+    color: white;
+  }
+
+  .input-grey {
+    background-color: #444140;
+    color: white;
+  }
+
+  .input-lightgrey {
+    background-color: #716d6b;
+    color: white;
+  }
+
+  .form-button {
+    width: 60%;
+    border-radius: 30px;
+    margin: 0;
+  }
+
+  .homeworks-form-bot {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1e1e24;
+    border-radius: 30px;
+    height: 30px;
+    padding: 0px 20px;
+    font-size: 14px;
+    color: white;
+  }
+
+  .homeworks {
+    position: absolute;
+    top: 400px;
+    left: 0;
+    background-color: #444140;
+    width: 100%;
+    min-height: calc(100vh - 400px);
+  }
+
+  .homework {
+    background-color: #f7ebe8;
+    border: 4px solid #1e1e24;
+    width: 90vw;
+    border-radius: 30px;
+    margin: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  }
+
+  .homework-important {
+    border: 4px solid #e54b4b;
+    box-shadow: 0 0 10px rgba(229, 75, 75, 0.8);
+  }
+
+  .homework-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .homework-title {
+    border: none;
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 30px;
+    background-color: #1e1e24;
+    color: white;
+  }
+
+  .homework-subject {
+    border: none;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 30px;
+    background-color: #444140;
+    color: white;
+  }
+
+  .homework-date {
+    border: none;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 30px;
+    background-color: #716d6b;
+    color: white;
+  }
 }

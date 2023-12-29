@@ -38,7 +38,7 @@ export default function Topbar({ user, selected }) {
           className="avatar"
         />
         <a
-          href="http://localhost:5000/api/logout"
+          href="/api/logout"
           className="button button-red"
         >
           Logout

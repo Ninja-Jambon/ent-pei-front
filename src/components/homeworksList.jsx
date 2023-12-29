@@ -33,10 +33,11 @@ export default function HomeworksList() {
   if (loading) {
     return <div className="homeworks">Loading...</div>;
   } else {
+    console.log(data);
     return (
       <div className="homeworks">
         {data.map((homework) => (
-          <div className="homework">
+          <div className={homework.important == 0 ? "homework" : "homework homework-important"}>
             <div className="homework-top">
               <p className="homework-title">{homework.title}</p>
               <p className="homework-subject">{homework.subject}</p>
