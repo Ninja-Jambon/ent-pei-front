@@ -12,6 +12,20 @@ export default function HomeworkForm() {
       return;
     }
 
+    const day = date.split("/")[0];
+    const month = date.split("/")[1];
+    const year = date.split("/")[2];
+
+    const dateObj = new Date(year, month - 1, day);
+
+    console.log(dateObj);
+
+    if (dateObj < Date.now()) {
+      alert("You can't add a homework in the past");
+      return;
+    }
+
+
     const res = await axios.get(
       `/api/homeworks/add?title=${title}&subject=${subject}&date=${date}&description=${description}`,
       {
@@ -22,7 +36,7 @@ export default function HomeworkForm() {
     if (res.data.error) {
       alert(res.data.error);
     } else {
-      window.location.reload();
+      window.location.reload(false);
     }
   }
 

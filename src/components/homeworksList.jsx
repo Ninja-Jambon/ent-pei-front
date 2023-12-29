@@ -10,7 +10,7 @@ export default function HomeworksList() {
     if (res.data.error) {
       alert(res.data.error);
     } else {
-      window.location.reload();
+      window.location.reload(false);
     }
   }
 

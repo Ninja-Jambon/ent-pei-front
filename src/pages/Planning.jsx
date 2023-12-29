@@ -1,11 +1,12 @@
 import React from "react";
 import Topbar from "../components/topbar";
+import Login from "../components/login";
 
 export default function Planning({user}) {
   if (user.error) { 
     return (
       <div>
-        <Topbar selected={2} />
+        <Login />
       </div>
     );
   } else {

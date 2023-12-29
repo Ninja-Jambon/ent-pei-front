@@ -2,12 +2,13 @@ import React from "react";
 import Topbar from "../components/topbar";
 import HomeworkForm from "../components/homeworkForm";
 import HomeworksList from "../components/homeworksList";
+import Login from "../components/login";
 
 export default function Homeworks({ user }) {
   if (user.error) {
     return (
       <div>
-        <Topbar selected={3} />
+        <Login />
       </div>
     );
   } else {
