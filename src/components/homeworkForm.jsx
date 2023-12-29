@@ -16,9 +16,13 @@ export default function HomeworkForm() {
     const month = date.split("/")[1];
     const year = date.split("/")[2];
 
-    const dateObj = new Date(year, month - 1, day);
+    //check if these values are numbers
+    if (isNaN(day) || isNaN(month) || isNaN(year)) {
+      alert("Invalid date");
+      return;
+    }
 
-    console.log(dateObj);
+    const dateObj = new Date(year, month - 1, day);
 
     if (dateObj < Date.now()) {
       alert("You can't add a homework in the past");
@@ -27,7 +31,7 @@ export default function HomeworkForm() {
 
 
     const res = await axios.get(
-      `/api/homeworks/add?title=${title}&subject=${subject}&date=${date}&description=${description}`,
+      `/api/homeworks/add?title=${title}&subject=${subject}&date=${date}&description=${description}&timestamp=${dateObj.getTime()}`,
       {
         withCredentials: true,
       }
