@@ -5,7 +5,7 @@ body {
   background-color: #f7ebe8;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 780px) {
   .topbar {
     background-color: #1e1e24;
     height: 60px;
@@ -256,7 +256,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 780px) {
   .topbar {
     background-color: #1e1e24;
     height: 60px;
@@ -370,7 +370,13 @@ body {
   }
 
   .form-button {
-    width: 60%;
+    width: 40%;
+    border-radius: 30px;
+    margin: 0;
+  }
+
+  .notif-button {
+    width: 20%;
     border-radius: 30px;
     margin: 0;
   }
