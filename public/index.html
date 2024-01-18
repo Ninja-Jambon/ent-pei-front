@@ -7,6 +7,20 @@
     <meta name="description" content="L'ent des PEI" />
     <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
     <title>ENT PEI</title>
+    <script>
+      window.addEventListener("load", () => {
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker
+            .register("/sw.js")
+            .then((reg) => {
+            })
+            .catch((err) => {
+              console.log("Service worker registration failed:", err);
+            });
+        }
+      });
+    </script>
+    <link rel="manifest" href="manifest.json">
   </head>
   <body>
     <div id="root"></div>

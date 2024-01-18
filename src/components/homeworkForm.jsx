@@ -17,7 +17,6 @@ export default function HomeworkForm() {
     const month = date.split("/")[1];
     const year = date.split("/")[2];
 
-    //check if these values are numbers
     if (isNaN(day) || isNaN(month) || isNaN(year)) {
       alert("Invalid date");
       return;
@@ -41,6 +40,42 @@ export default function HomeworkForm() {
       alert(res.data.error);
     } else {
       window.location.reload(false);
+    }
+  }
+
+  function allowNotif() {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.ready.then((registration) => {
+        if (!registration.pushManager) {
+          return;
+        }
+
+        registration.pushManager
+          .getSubscription()
+          .then((existedSubscription) => {
+            if (!existedSubscription) {
+              registration.pushManager
+                .subscribe({
+                  applicationServerKey:
+                    "BIUfW-EKTqgJ0TqwXwGtR0jDalIT9GcBYaOfu4UNBegeUU_lCSKeFdGG3odXeRBIGB3YOw_WUFJGbqDwDgNDpq0",
+                  userVisibleOnly: true,
+                })
+                .then((newSubscription) => {
+                  axios.get(
+                    `/api/subscribe?endpoint=${
+                      newSubscription.toJSON().endpoint
+                    }&auth=${newSubscription.toJSON().keys.auth}&p256dh=${
+                      newSubscription.toJSON().keys.p256dh
+                    }`,
+                    {}
+                  );
+                })
+                .catch((error) => {
+                  console.log(error);
+                });
+            }
+          });
+      });
     }
   }
 
@@ -74,12 +109,22 @@ export default function HomeworkForm() {
       <div className="homeworks-form-top">
         <button
           type="button"
+          onClick={allowNotif}
+          className="button button-salmon notif-button"
+        >
+          Notifs
+        </button>
+        <button
+          type="button"
           onClick={submit}
           className="button button-red form-button"
         >
           Submit
         </button>
-        <span className="homeworks-form-bot">Important <input type="checkbox" className="checkbox" id="important"/></span>
+        <span className="homeworks-form-bot">
+          Important{" "}
+          <input type="checkbox" className="checkbox" id="important" />
+        </span>
       </div>
     </form>
   );

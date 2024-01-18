@@ -33,7 +33,6 @@ export default function HomeworksList() {
   if (loading) {
     return <div className="homeworks">Loading...</div>;
   } else {
-    console.log(data);
     return (
       <div className="homeworks">
         {data.map((homework) => (
