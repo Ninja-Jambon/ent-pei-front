@@ -1,0 +1,28 @@
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #1E1E24;
+    padding: 10px;
+}
+
+.topbar-avatar {
+    width: 40px;
+    border-radius: 30px;
+}
+
+.topbar-username {
+    margin-left: 30%;
+    color: white;
+}
+
+@media only screen and (max-width: 638px) {
+    .topbar-username {
+        margin-left: 0;
+        color: white;
+    }
+
+    .topbar-username {
+        display: none;
+    }
+}
