@@ -29,7 +29,6 @@ export default function HomeworksForm() {
     var form = document.querySelector(".homeworks-form");
 
     form.style.display = "none";
-
   }
 
   function closeForm() {
@@ -41,20 +40,35 @@ export default function HomeworksForm() {
   return (
     <div className="homeworks-form">
       <div className="homeworks-form-top">
-        <input type="text" id="title" className="homeworks-form-title" placeholder="Title" />
-        <input type="date" id="date" className="homeworks-form-date" />
-        <div className="homeworks-form-important">
-          <p>Important : <input type="checkbox" id="important" /></p>
-        </div>
-        <button className="button" onClick={closeForm}>
+        <input
+          type="text"
+          id="title"
+          className="homeworks-form-title"
+          placeholder="Title"
+        />
+        <button className="button button-form-close" onClick={closeForm}>
           Close
         </button>
       </div>
+      <div className="homeworks-form-top">
+        <input type="date" id="date" className="homeworks-form-date" />
+        <div className="homeworks-form-important">
+          <p>
+            Important : <input type="checkbox" id="important" />
+          </p>
+        </div>
+      </div>
       <div className="homeworks-form-mid">
-        <textarea className="homeworks-form-description" id="description" placeholder="Description"></textarea>
+        <textarea
+          className="homeworks-form-description"
+          id="description"
+          placeholder="Description"
+        ></textarea>
       </div>
       <div className="homeworks-form-bot">
-        <button onClick={addhomework} className="button">Submit</button>
+        <button onClick={addhomework} className="button button-form-submit">
+          Submit
+        </button>
       </div>
     </div>
   );

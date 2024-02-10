@@ -6,7 +6,7 @@ import "./leaderboard.css";
 
 export default function Leaderboard({ user }) {
   const [loading, setLoading] = useState(true);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState([]);
 
   async function updateLeaderboard() {
     await axios.get("/api/v1/rootme/updatescore", {
@@ -36,8 +36,8 @@ export default function Leaderboard({ user }) {
         <Topbar user={user} page={2} />
         <div className="user-list">
           <button className="button button-update" onClick={updateLeaderboard}>Update</button>
-          {score.map((user) => (
-            <div className="score-user">
+          {score.map((user, index) => (
+            <div className={`score-user ${index == 0 ? "score-user-first" : index == 1 ? "score-user-second" : index == 2 ? "score-user-third" : ""}`}>
               <div className="score-name">{user.name}</div>
               <a href={user.url} className="score-link">
                 {user.username}
