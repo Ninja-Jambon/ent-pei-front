@@ -21,7 +21,7 @@ export default function Topbar({ user, page }) {
         alt="avatar"
         className="topbar-avatar"
       />
-      <a className="button button-red">Logout</a>
+      <a className="button button-red" href="/api/v1/discord/logout">Logout</a>
     </div>
   );
 }
